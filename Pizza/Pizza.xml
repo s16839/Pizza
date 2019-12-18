@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pizza</name>
+    </assembly>
+    <members>
+        <member name="M:Pizza.Controllers.PizzasController.GetPizza">
+            <summary>
+            Metoda zwraca kolekcję dostępnych placków
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
