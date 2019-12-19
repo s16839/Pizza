@@ -102,6 +102,63 @@ namespace Pizza.Controllers
             return pizza;
         }
 
+        [HttpGet("vege")]
+        public IActionResult GetVege() {
+
+            var pizzasVege = new List<Models.Pizza>();
+            var all = _context.Pizza;
+            foreach (var pizza in all) {
+                if (pizza.IsVege == true) pizzasVege.Add(pizza);
+            }
+            return Ok(pizzasVege);
+                    
+        }
+
+        [HttpGet("vege/{id:int}")]
+        public IActionResult GetVege(int id)
+        {
+
+            var pizzasVege = new List<Models.Pizza>();
+            var all = _context.Pizza;
+            foreach (var pizza in all)
+            {
+                if (pizza.IsVege == true) pizzasVege.Add(pizza);
+            }
+
+            
+            return Ok(pizzasVege.FirstOrDefault(p => p.IdPizza == id));
+
+        }
+
+        [HttpGet("spicy")]
+        public IActionResult GetSpicy()
+        {
+
+            var pizzasSpicy = new List<Models.Pizza>();
+            var all = _context.Pizza;
+            foreach (var pizza in all)
+            {
+                if (pizza.IsSpicy == true) pizzasSpicy.Add(pizza);
+            }
+            return Ok(pizzasSpicy);
+
+        }
+
+        [HttpGet("spicy/{id:int}")]
+        public IActionResult GetSpicy(int id)
+        {
+
+            var pizzasSpicy = new List<Models.Pizza>();
+            var all = _context.Pizza;
+            foreach (var pizza in all)
+            {
+                if (pizza.IsSpicy == true) pizzasSpicy.Add(pizza);
+            }
+            return Ok(pizzasSpicy.FirstOrDefault(p => p.IdPizza == id));
+
+        }
+
+
         private bool PizzaExists(int id)
         {
             return _context.Pizza.Any(e => e.IdPizza == id);
